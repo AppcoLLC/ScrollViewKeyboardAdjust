@@ -52,16 +52,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //print("keyboard will show rebar")
         
         if !keyboardVisible {
-            //get the size of the keyboard and add it to the scroll view height so that the user can access all fields and buttons
-            //            if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-            //                //print("updating constraints")
-            //                //print(keyboardSize.height)
-            //                //add only half the keyboard height, otherwise scroll view can scroll farther than necessary
-            //                //scrollViewHeightConstraint.constant += keyboardSize.height/2
-            //            }
-            
-            //move to text field into view - http://stackoverflow.com/questions/28813339/move-a-view-up-only-when-the-keyboard-covers-an-input-field
-            //Need to calculate keyboard exact size due to Apple suggestions
+
             self.scrollView.isScrollEnabled = true
             let info : NSDictionary = notification.userInfo! as NSDictionary
             let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
@@ -69,25 +60,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             self.scrollView.contentInset = contentInsets
             self.scrollView.scrollIndicatorInsets = contentInsets
-            
-            var aRect : CGRect = self.view.frame
-            aRect.size.height -= keyboardSize!.height
-//            if activeTextField != nil
-//            {
-//                if (!aRect.contains(activeTextField!.frame.origin))
-//                {
-//                    self.scrollView.scrollRectToVisible(activeTextField!.frame, animated: true)
-//                }
-//            }
-            
+        
             //keyboard is now visible
             keyboardVisible = true
             
-            
         }
-        
-        
-        
     }
     
     func keyboardWillHide(_ notification : Notification) {
@@ -95,25 +72,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         if keyboardVisible {
             //keyboard hiding set scroll view back to regular height
-            //self.scrollViewHeightConstraint.constant = self.defaultScrollViewHeightConstraint
-            
-            //Once keyboard disappears, restore original positions
-            //let info : NSDictionary = notification.userInfo!
-            //let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue().size
-            //let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -keyboardSize!.height, 0.0)
+
             let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
             self.scrollView.contentInset = contentInsets
             self.scrollView.scrollIndicatorInsets = contentInsets
-            //self.view.endEditing(true)
-            //self.scrollView.scrollEnabled = true
-            //self.viewWillLayoutSubviews()
             
             //keyboard no longer visible
             keyboardVisible = false
         }
-        
-        
-        
     }
     
     
