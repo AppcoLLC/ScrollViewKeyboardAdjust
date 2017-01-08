@@ -28,7 +28,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="780"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WDc-rn-oI6">
-                                                <rect key="frame" x="137" y="730" width="100" height="30"/>
+                                                <rect key="frame" x="137" y="720" width="100" height="30"/>
                                                 <state key="normal" title="Bottom Button"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNc-8y-b5f">
@@ -36,18 +36,21 @@
                                                 <state key="normal" title="Top Button"/>
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="text field" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aib-am-nIR">
-                                                <rect key="frame" x="112.5" y="680" width="150" height="30"/>
+                                                <rect key="frame" x="112.5" y="670" width="150" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="upM-yS-qJQ"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Ywo-uc-BMB"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="WDc-rn-oI6" secondAttribute="bottom" constant="20" id="06m-29-gJP"/>
+                                            <constraint firstAttribute="bottom" secondItem="WDc-rn-oI6" secondAttribute="bottom" constant="30" id="06m-29-gJP"/>
                                             <constraint firstItem="WDc-rn-oI6" firstAttribute="top" secondItem="aib-am-nIR" secondAttribute="bottom" constant="20" id="Dc6-El-p9U"/>
                                             <constraint firstAttribute="height" constant="780" id="OR9-VD-bSq"/>
                                             <constraint firstItem="aib-am-nIR" firstAttribute="centerX" secondItem="Vuo-7Q-EyT" secondAttribute="centerX" id="Rsn-CO-XUY"/>
@@ -77,6 +80,10 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="800"/>
+                    <connections>
+                        <outlet property="scrollView" destination="7FH-2z-YxD" id="W71-11-gwQ"/>
+                        <outlet property="textField" destination="aib-am-nIR" id="e83-tT-qIN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
